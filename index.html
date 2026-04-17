@@ -1,0 +1,1111 @@
+
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Pure Relax FS - Profesjonalny masaż z dojazdem do klienta w Nowym Sączu i okolicach. Dostępny 7 dni w tygodniu. Zadzwoń: 661 107 626.">
+    <title>Pure Relax FS | Masaż Nowy Sącz – dojazd do klienta</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- 1. DESIGN TOKENS --- */
+        :root {
+            /* Colors: Neutrals */
+            --bg: #FAFBFC;
+            --surface: #FFFFFF;
+            --surface-2: #F2F5F8;
+            --border: #E3E8EF;
+            --text: #0F172A;
+            --text-muted: #475569;
+            --text-subtle: #64748B;
+            --icon: #334155;
+
+            /* Colors: Primary (Navy) */
+            --primary: #0B3B74;
+            --primary-hover: #082F5D;
+            --primary-pressed: #06264C;
+            --primary-contrast: #FFFFFF;
+
+            /* Colors: Accent (Turquoise) */
+            --accent: #14B8A6;
+            --accent-hover: #0EA5A0;
+            --accent-pressed: #0B8A86;
+            --accent-contrast: #FFFFFF;
+            --accent-light: rgba(20, 184, 166, 0.12);
+
+            /* Colors: Status */
+            --success: #16A34A;
+            --error: #DC2626;
+
+            /* Typography */
+            --font-heading: 'Manrope', sans-serif;
+            --font-body: 'Inter', sans-serif;
+
+            /* Spacing (8px grid) */
+            --space-1: 4px;
+            --space-2: 8px;
+            --space-3: 12px;
+            --space-4: 16px;
+            --space-5: 24px;
+            --space-6: 32px;
+            --space-7: 48px;
+            --space-8: 64px;
+
+            /* Radii */
+            --radius-sm: 10px;
+            --radius-md: 14px;
+            --radius-lg: 18px;
+            --radius-pill: 999px;
+
+            /* Shadows */
+            --shadow-card: 0 6px 20px rgba(15, 23, 42, 0.08);
+            --shadow-hover: 0 10px 28px rgba(15, 23, 42, 0.10);
+
+            /* Layout */
+            --container-width: 1200px;
+            --header-height: 70px;
+            --mobile-bar-height: 64px;
+        }
+
+        /* --- 2. RESET & BASE --- */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+            padding-bottom: var(--mobile-bar-height);
+        }
+
+        @media (min-width: 768px) {
+            body {
+                padding-bottom: 0;
+            }
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* --- 3. TYPOGRAPHY --- */
+        h1, h2, h3, h4 {
+            font-family: var(--font-heading);
+            color: var(--text);
+            font-weight: 700;
+        }
+
+        h1 {
+            font-size: 30px;
+            line-height: 1.15;
+            margin-bottom: var(--space-4);
+        }
+
+        h2 {
+            font-size: 28px;
+            line-height: 1.2;
+            margin-bottom: var(--space-3);
+        }
+
+        h3 {
+            font-size: 20px;
+            line-height: 1.25;
+            margin-bottom: var(--space-2);
+        }
+
+        p {
+            color: var(--text-muted);
+            max-width: 65ch;
+            margin-bottom: var(--space-3);
+        }
+
+        .text-small {
+            font-size: 14px;
+            line-height: 1.55;
+            color: var(--text-subtle);
+        }
+
+        /* Desktop Typography overrides */
+        @media (min-width: 1024px) {
+            h1 { font-size: 40px; }
+            h2 { font-size: 32px; }
+            h3 { font-size: 24px; }
+        }
+
+        /* --- 4. LAYOUT UTILITIES --- */
+        .container {
+            width: 100%;
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--space-4);
+        }
+
+        @media (min-width: 768px) { .container { padding: 0 var(--space-5); } }
+        @media (min-width: 1024px) { .container { padding: 0 var(--space-6); } }
+
+        .section {
+            padding: var(--space-7) 0;
+        }
+
+        @media (min-width: 1024px) { .section { padding: var(--space-8) 0; } }
+
+        .grid {
+            display: grid;
+            gap: var(--space-5);
+        }
+
+        .grid-2 { grid-template-columns: 1fr; }
+        .grid-3 { grid-template-columns: 1fr; }
+        .grid-4 { grid-template-columns: 1fr; }
+
+        @media (min-width: 768px) {
+            .grid-2 { grid-template-columns: repeat(2, 1fr); }
+            .grid-3 { grid-template-columns: repeat(2, 1fr); }
+            .grid-4 { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (min-width: 1024px) {
+            .grid-3 { grid-template-columns: repeat(3, 1fr); }
+            .grid-4 { grid-template-columns: repeat(4, 1fr); }
+        }
+
+        /* --- 5. COMPONENTS --- */
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 16px;
+            border-radius: var(--radius-md);
+            padding: 12px 18px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+            border: none;
+        }
+
+        @media (min-width: 1024px) {
+            .btn { padding: 14px 22px; }
+        }
+
+        .btn-primary {
+            background-color: var(--accent);
+            color: var(--accent-contrast);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-hover);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(20, 184, 166, 0.2);
+        }
+
+        .btn-primary:active {
+            background-color: var(--accent-pressed);
+            transform: translateY(0);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            border: 1px solid var(--border);
+            color: var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--surface-2);
+            border-color: var(--primary);
+        }
+
+        .btn-full {
+            width: 100%;
+        }
+
+        /* Cards */
+        .card {
+            background-color: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: var(--space-5);
+            transition: all 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            border-color: var(--accent);
+            box-shadow: var(--shadow-hover);
+            transform: translateY(-2px);
+        }
+
+        /* Badges */
+        .badge {
+            display: inline-block;
+            background-color: var(--accent-light);
+            color: var(--accent-pressed);
+            padding: 6px 12px;
+            border-radius: var(--radius-pill);
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: var(--space-2);
+        }
+
+        /* Icons */
+        .icon-box {
+            width: 48px;
+            height: 48px;
+            background-color: var(--surface-2);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            margin-bottom: var(--space-3);
+        }
+
+        .icon-box svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        /* --- 6. HEADER --- */
+        .header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background-color: rgba(250, 250, 250, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            height: var(--header-height);
+        }
+
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 100%;
+        }
+
+        .logo {
+            font-family: var(--font-heading);
+            font-weight: 800;
+            font-size: 20px;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            letter-spacing: -0.3px;
+        }
+
+        .logo-accent {
+            color: var(--accent);
+        }
+
+        .nav {
+            display: none;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            color: var(--text);
+            padding: 8px 16px;
+        }
+
+        .nav-link:hover {
+            color: var(--accent);
+        }
+
+        .desktop-cta {
+            display: none;
+        }
+
+        .hamburger {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            color: var(--primary);
+        }
+
+        /* Mobile Menu Overlay */
+        .mobile-menu {
+            position: fixed;
+            top: var(--header-height);
+            left: 0;
+            width: 100%;
+            height: calc(100vh - var(--header-height));
+            background: var(--bg);
+            padding: var(--space-6);
+            transform: translateX(100%);
+            transition: transform 0.3s ease-in-out;
+            z-index: 99;
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-4);
+        }
+
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+
+        .mobile-menu a {
+            font-size: 20px;
+            font-weight: 600;
+            padding: var(--space-3) 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        @media (min-width: 1024px) {
+            .nav { display: flex; gap: var(--space-1); }
+            .desktop-cta { display: inline-flex; }
+            .hamburger { display: none; }
+            .mobile-menu { display: none; }
+        }
+
+        /* --- 7. SECTIONS SPECIFIC --- */
+
+        /* Hero */
+        .hero {
+            padding: var(--space-6) 0 var(--space-8);
+        }
+
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .hero-image {
+            background-color: #E8E0D0;
+            border-radius: var(--radius-lg);
+            min-height: 300px;
+            overflow: hidden;
+            position: relative;
+            background-image: url('https://images.unsplash.com/photo-1519823551278-64ac92734fb1?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: var(--space-3);
+            margin-top: var(--space-4);
+            flex-wrap: wrap;
+        }
+
+        .trust-badges {
+            display: flex;
+            gap: var(--space-4);
+            margin-top: var(--space-6);
+            flex-wrap: wrap;
+        }
+
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-muted);
+        }
+
+        .trust-item svg {
+            color: var(--accent);
+            width: 18px;
+            height: 18px;
+        }
+
+        /* Benefits */
+        .benefits-card {
+            text-align: left;
+            padding: var(--space-4) 0;
+        }
+
+        /* Services */
+        .service-meta {
+            margin-top: auto;
+            padding-top: var(--space-4);
+            border-top: 1px solid var(--surface-2);
+            display: flex;
+            justify-content: space-between;
+            font-size: 13px;
+            color: var(--text-subtle);
+        }
+
+        /* Process */
+        .process-step {
+            position: relative;
+            padding-left: var(--space-7);
+        }
+
+        .process-number {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 40px;
+            height: 40px;
+            background-color: var(--surface-2);
+            color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-family: var(--font-heading);
+        }
+
+        /* Team */
+        .team-photo {
+            width: 100%;
+            height: 240px;
+            background-color: #CBD5E1;
+            border-radius: var(--radius-md);
+            margin-bottom: var(--space-3);
+            object-fit: cover;
+        }
+
+        .team-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: var(--space-2);
+        }
+
+        .tag {
+            background: var(--surface-2);
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        /* Reviews */
+        .stars {
+            color: #F59E0B;
+            margin-bottom: var(--space-2);
+        }
+
+        /* FAQ */
+        details {
+            background-color: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            margin-bottom: var(--space-3);
+            overflow: hidden;
+            transition: all 0.2s;
+        }
+
+        summary {
+            padding: var(--space-4) var(--space-5);
+            cursor: pointer;
+            font-weight: 600;
+            position: relative;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+        summary::after {
+            content: '+';
+            font-size: 24px;
+            font-weight: 400;
+            color: var(--accent);
+            transition: transform 0.2s;
+        }
+
+        details[open] summary::after {
+            transform: rotate(45deg);
+        }
+
+        details[open] {
+            border-color: var(--accent);
+        }
+
+        .faq-content {
+            padding: 0 var(--space-5) var(--space-5);
+            color: var(--text-muted);
+            border-top: 1px solid transparent;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--text);
+            color: #fff;
+            padding: var(--space-7) 0 var(--space-5);
+        }
+
+        .footer h4 { color: #fff; margin-bottom: var(--space-4); }
+        .footer p { color: #94A3B8; }
+        .footer a { color: #CBD5E1; }
+        .footer a:hover { color: var(--accent); }
+
+        .footer-bottom {
+            border-top: 1px solid #334155;
+            margin-top: var(--space-6);
+            padding-top: var(--space-4);
+            text-align: center;
+            font-size: 13px;
+            color: #64748B;
+        }
+
+        /* Mobile Sticky Bar */
+        .mobile-sticky-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: var(--surface);
+            padding: 12px var(--space-4);
+            box-shadow: 0 -4px 20px rgba(0,0,0,0.05);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: var(--space-3);
+        }
+
+        .sticky-phone {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            border-radius: var(--radius-sm);
+            background: var(--surface-2);
+            color: var(--primary);
+        }
+
+        @media (min-width: 768px) {
+            .mobile-sticky-bar { display: none; }
+        }
+
+        /* Animations */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(10px);
+            animation: fadeUp 0.5s ease-out forwards;
+        }
+
+        @keyframes fadeUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Contact */
+        .contact-card {
+            background: var(--surface);
+            padding: var(--space-5);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border);
+        }
+
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="container header-inner">
+            <a href="#" class="logo">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="color: var(--accent);">
+                    <path d="M12 2C8 2 4 5.5 4 10c0 3 1.5 5.5 3.5 7.5L12 22l4.5-4.5C18.5 15.5 20 13 20 10c0-4.5-4-8-8-8z" fill="currentColor" opacity="0.2"/>
+                    <path d="M12 2C8 2 4 5.5 4 10c0 3 1.5 5.5 3.5 7.5L12 22l4.5-4.5C18.5 15.5 20 13 20 10c0-4.5-4-8-8-8z" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                    <circle cx="12" cy="10" r="3" fill="currentColor"/>
+                </svg>
+                Pure Relax <span class="logo-accent">FS</span>
+            </a>
+
+            <nav class="nav">
+                <a href="#uslugi" class="nav-link">Usługi</a>
+                <a href="#masazysta" class="nav-link">O mnie</a>
+                <a href="#opinie" class="nav-link">Opinie</a>
+                <a href="#cennik" class="nav-link">Cennik</a>
+                <a href="#kontakt" class="nav-link">Kontakt</a>
+            </nav>
+
+            <a href="tel:+48661107626" class="btn btn-primary desktop-cta">Zadzwoń teraz</a>
+
+            <button class="hamburger" aria-label="Menu" onclick="toggleMenu()">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#uslugi" onclick="toggleMenu()">Usługi</a>
+        <a href="#masazysta" onclick="toggleMenu()">O mnie</a>
+        <a href="#opinie" onclick="toggleMenu()">Opinie</a>
+        <a href="#cennik" onclick="toggleMenu()">Cennik</a>
+        <a href="#kontakt" onclick="toggleMenu()">Kontakt</a>
+    </div>
+
+    <section class="section hero">
+        <div class="container grid grid-2" style="align-items: center;">
+            <div class="hero-content fade-up" style="animation-delay: 0.1s;">
+                <span class="badge">Dojazd do Ciebie · 7 dni w tygodniu</span>
+                <h1>Masaż w Nowym Sączu – przyjeżdżam do Ciebie</h1>
+                <p>Profesjonalny masaż relaksacyjny i leczniczy bez wychodzenia z domu. Obsługuję Nowy Sącz i okolice. Dostępny każdego dnia tygodnia.</p>
+
+                <div class="hero-btns">
+                    <a href="tel:+48661107626" class="btn btn-primary">Zadzwoń: 661 107 626</a>
+                    <a href="#uslugi" class="btn btn-secondary">Zobacz usługi</a>
+                </div>
+
+                <div class="trust-badges">
+                    <div class="trust-item">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                        Dojazd do klienta
+                    </div>
+                    <div class="trust-item">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                        7 dni w tygodniu
+                    </div>
+                    <div class="trust-item">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                        Każdy wiek
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-image fade-up" style="animation-delay: 0.2s;" role="img" aria-label="Profesjonalny masaż Pure Relax FS Nowy Sącz">
+            </div>
+        </div>
+    </section>
+
+    <section class="section" style="background-color: var(--surface-2);">
+        <div class="container">
+            <div class="grid grid-3">
+                <div class="benefits-card">
+                    <div class="icon-box">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                    </div>
+                    <h3>Dojazd do domu</h3>
+                    <p>Przyjeżdżam ze stołem masażowym do Twojego domu lub biura. Zero stresu, zero dojazdów – relaks zaczyna się od razu.</p>
+                </div>
+                <div class="benefits-card">
+                    <div class="icon-box">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                    </div>
+                    <h3>7 dni w tygodniu</h3>
+                    <p>Pracuję w weekendy i święta. Umów termin na dowolny dzień – do Ciebie dopasowuję harmonogram.</p>
+                </div>
+                <div class="benefits-card">
+                    <div class="icon-box">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    </div>
+                    <h3>Dla każdego</h3>
+                    <p>Obsługuję klientów w każdym wieku – od osób aktywnych po seniorów. Dobiera odpowiednią technikę masażu do Twoich potrzeb.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="uslugi" class="section">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: var(--space-6);">Usługi masażu</h2>
+            <div class="grid grid-3">
+                <div class="card">
+                    <div class="icon-box">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"/><line x1="16" y1="8" x2="2" y2="22"/><line x1="17.5" y1="15" x2="9" y2="15"/></svg>
+                    </div>
+                    <h3>Masaż Relaksacyjny</h3>
+                    <p>Głęboki relaks całego ciała. Rozluźnia napięcia mięśniowe, redukuje stres i poprawia samopoczucie.</p>
+                    <div class="service-meta">
+                        <span>60–90 min</span>
+                        <span>Dla każdego</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="icon-box">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                    </div>
+                    <h3>Masaż Leczniczy</h3>
+                    <p>Celowana praca na obszarach bólowych. Skuteczny przy bólach kręgosłupa, karku i przeciążeniach mięśni.</p>
+                    <div class="service-meta">
+                        <span>45–60 min</span>
+                        <span>Ból, napięcia</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="icon-box">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+                    </div>
+                    <h3>Masaż Sportowy</h3>
+                    <p>Regeneracja po treningu i przygotowanie do wysiłku. Zwiększa wydajność i przyspiesza powrót do formy.</p>
+                    <div class="service-meta">
+                        <span>60 min</span>
+                        <span>Aktywni, sportowcy</span>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: var(--space-5);">
+                <a href="#cennik" class="btn btn-secondary">Zobacz pełny cennik</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" style="background-color: var(--surface-2);">
+        <div class="container">
+            <h2 style="margin-bottom: var(--space-6);">Jak umówić wizytę?</h2>
+            <div class="grid grid-3">
+                <div class="process-step">
+                    <div class="process-number">01</div>
+                    <h3>Zadzwoń lub napisz</h3>
+                    <p>Skontaktuj się telefonicznie lub przez Instagram. Ustalamy termin i lokalizację – do Twojego domu lub biura.</p>
+                </div>
+                <div class="process-step">
+                    <div class="process-number">02</div>
+                    <h3>Przyjeżdżam do Ciebie</h3>
+                    <p>Przyjeżdżam ze stołem masażowym i wszystkim potrzebnym sprzętem. Potrzebna jest tylko wolna przestrzeń ok. 2×3 m.</p>
+                </div>
+                <div class="process-step">
+                    <div class="process-number">03</div>
+                    <h3>Relaksujesz się</h3>
+                    <p>Dobiera technikę i intensywność do Twoich potrzeb. Po masażu możesz od razu odpocząć we własnym domu.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="masazysta" class="section">
+        <div class="container">
+            <h2 style="margin-bottom: var(--space-6);">Twój masażysta</h2>
+            <div class="grid grid-2" style="align-items: center; max-width: 800px;">
+                <div class="card" style="padding: var(--space-4);">
+                    <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?q=80&w=1970&auto=format&fit=crop" alt="Filip Skoczeń – masażysta Nowy Sącz" class="team-photo">
+                    <h3>Filip Skoczeń</h3>
+                    <p class="text-small">Masażysta · Pure Relax FS</p>
+                    <div class="team-tags">
+                        <span class="tag">Masaż relaksacyjny</span>
+                        <span class="tag">Masaż leczniczy</span>
+                        <span class="tag">Sportowy</span>
+                        <span class="tag">Dojazd do klienta</span>
+                    </div>
+                </div>
+                <div>
+                    <h3>Masaż na Twoich warunkach</h3>
+                    <p>Zajmuję się masażem, bo wierzę, że każdy zasługuje na chwilę prawdziwego relaksu – bez komplikacji i bez konieczności wychodzenia z domu.</p>
+                    <p>Dojazd do klienta to moja specjalność. Obsługuję Nowy Sącz i okolice, 7 dni w tygodniu, dostosowując się do Twojego grafiku.</p>
+                    <a href="https://www.instagram.com/masazysta.filip" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="margin-top: var(--space-3);">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 8px;"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                        @masazysta.filip
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="opinie" class="section" style="background-color: var(--surface-2);">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: var(--space-6);">Co mówią klienci</h2>
+            <div class="grid grid-3">
+                <div class="card">
+                    <div class="stars">★★★★★</div>
+                    <p>"Filip przyjechał punktualnie, przywiózł własny stół. Masaż relaksacyjny na najwyższym poziomie – rzadko spotykany profesjonalizm w usługach z dojazdem."</p>
+                    <p class="text-small" style="margin-top: auto; font-weight: 600;">– Klient z Nowego Sącza</p>
+                </div>
+                <div class="card">
+                    <div class="stars">★★★★★</div>
+                    <p>"Masaż leczniczy na ból pleców – po kilku wizytach czuję ogromną różnicę. Wygoda dojazdu do domu to absolutny plus, szczególnie gdy się boli."</p>
+                    <p class="text-small" style="margin-top: auto; font-weight: 600;">– Klientka, okolice NS</p>
+                </div>
+                <div class="card">
+                    <div class="stars">★★★★★</div>
+                    <p>"Korzystam regularnie jako uzupełnienie treningu. Masaż sportowy u Filipa to stały punkt mojego tygodnia. Dostępny w soboty i niedziele – nieocenione!"</p>
+                    <p class="text-small" style="margin-top: auto; font-weight: 600;">– Klient aktywny sportowo</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="cennik" class="section">
+        <div class="container" style="max-width: 800px;">
+            <h2 style="margin-bottom: var(--space-5);">Cennik</h2>
+            <p style="margin-bottom: var(--space-6);">Ceny obejmują dojazd na terenie Nowego Sącza i okolic. Zadzwoń po indywidualną wycenę dla dalszych lokalizacji.</p>
+            <div class="grid grid-2">
+                <div class="card">
+                    <h3>Masaż Relaksacyjny</h3>
+                    <p class="text-small">Całe ciało, pełne rozluźnienie</p>
+                    <div style="margin-top: auto; padding-top: var(--space-4);">
+                        <div style="font-size: 28px; font-weight: 700; color: var(--accent); font-family: var(--font-heading);">od 120 zł</div>
+                        <div class="text-small" style="margin-top: 4px;">60 minut</div>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>Masaż Leczniczy</h3>
+                    <p class="text-small">Ból kręgosłupa, karku, przeciążenia</p>
+                    <div style="margin-top: auto; padding-top: var(--space-4);">
+                        <div style="font-size: 28px; font-weight: 700; color: var(--accent); font-family: var(--font-heading);">od 130 zł</div>
+                        <div class="text-small" style="margin-top: 4px;">60 minut</div>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>Masaż Sportowy</h3>
+                    <p class="text-small">Regeneracja, przygotowanie do treningu</p>
+                    <div style="margin-top: auto; padding-top: var(--space-4);">
+                        <div style="font-size: 28px; font-weight: 700; color: var(--accent); font-family: var(--font-heading);">od 140 zł</div>
+                        <div class="text-small" style="margin-top: 4px;">60 minut</div>
+                    </div>
+                </div>
+                <div class="card" style="background: var(--accent-light); border-color: var(--accent);">
+                    <h3>Pakiet 5 wizyt</h3>
+                    <p class="text-small">Oszczędzasz 10% — dowolna kombinacja masaży</p>
+                    <div style="margin-top: auto; padding-top: var(--space-4);">
+                        <div style="font-size: 28px; font-weight: 700; color: var(--accent-pressed); font-family: var(--font-heading);">−10%</div>
+                        <div class="text-small" style="margin-top: 4px;">Zadzwoń po wycenę</div>
+                    </div>
+                </div>
+            </div>
+            <p class="text-small" style="margin-top: var(--space-4); text-align: center;">* Ceny orientacyjne. Dokładna wycena po uzgodnieniu lokalizacji i zakresu usługi.</p>
+        </div>
+    </section>
+
+    <section id="faq" class="section" style="background-color: var(--surface-2);">
+        <div class="container" style="max-width: 800px;">
+            <h2 style="margin-bottom: var(--space-6);">Częste pytania</h2>
+
+            <details>
+                <summary>Jak wygląda wizyta z dojazdem?</summary>
+                <div class="faq-content">
+                    Przyjeżdżam do Twojego domu lub innego wskazanego miejsca ze składanym stołem masażowym i niezbędnym wyposażeniem. Potrzebujesz tylko ok. 2×3 m wolnej przestrzeni. Przygotuj się tak jak do wizyty w gabinecie – wygodne, luźne ubranie lub bycie w bieliźnie w trakcie masażu.
+                </div>
+            </details>
+
+            <details>
+                <summary>Na jakim obszarze działasz?</summary>
+                <div class="faq-content">
+                    Obsługuję Nowy Sącz i okoliczne miejscowości. W przypadku dalszych lokalizacji – skontaktuj się telefonicznie, ustalimy możliwość i ewentualny koszt dojazdu.
+                </div>
+            </details>
+
+            <details>
+                <summary>Czy pracujesz w weekendy i święta?</summary>
+                <div class="faq-content">
+                    Tak, jestem dostępny 7 dni w tygodniu, włącznie z weekendami i większością świąt. Kontaktuj się telefonicznie lub przez Instagram, aby ustalić termin.
+                </div>
+            </details>
+
+            <details>
+                <summary>Jak zapłacić za masaż?</summary>
+                <div class="faq-content">
+                    Akceptuję płatność gotówką oraz przelewem/BLIKiem po zakończeniu wizyty. Wszelkie szczegóły ustalamy przy rezerwacji.
+                </div>
+            </details>
+
+            <details>
+                <summary>Ile wcześniej trzeba się umawiać?</summary>
+                <div class="faq-content">
+                    Staram się być elastyczny – w miarę możliwości możemy umówić wizytę nawet na ten sam dzień. Najlepiej skontaktować się z wyprzedzeniem 1–2 dni dla pewności terminu.
+                </div>
+            </details>
+        </div>
+    </section>
+
+    <section id="kontakt" class="section">
+        <div class="container">
+            <div class="grid grid-2">
+                <div class="contact-card">
+                    <h2>Umów masaż</h2>
+                    <p style="margin-bottom: var(--space-5);">Zadzwoń lub napisz – odpowiem tak szybko jak to możliwe.</p>
+
+                    <a href="tel:+48661107626" class="btn btn-primary btn-full" style="margin-bottom: var(--space-3);">
+                        Zadzwoń: 661 107 626
+                    </a>
+
+                    <a href="https://www.instagram.com/masazysta.filip" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-full" style="margin-bottom: var(--space-5);">
+                        Napisz na Instagram
+                    </a>
+
+                    <form onsubmit="event.preventDefault(); alert('Dziękujemy! Skontaktujemy się wkrótce.');" style="display: flex; flex-direction: column; gap: var(--space-3);">
+                        <div style="display: flex; flex-direction: column; gap: 8px;">
+                            <label for="name" class="text-small" style="font-weight: 600;">Imię i nazwisko</label>
+                            <input type="text" id="name" placeholder="Jan Kowalski" required style="padding: 12px; border: 1px solid var(--border); border-radius: var(--radius-sm);">
+                        </div>
+                        <div style="display: flex; flex-direction: column; gap: 8px;">
+                            <label for="phone" class="text-small" style="font-weight: 600;">Telefon</label>
+                            <input type="tel" id="phone" placeholder="123 456 789" required style="padding: 12px; border: 1px solid var(--border); border-radius: var(--radius-sm);">
+                        </div>
+                        <div style="display: flex; flex-direction: column; gap: 8px;">
+                            <label for="msg" class="text-small" style="font-weight: 600;">Rodzaj masażu i preferowany termin</label>
+                            <textarea id="msg" rows="3" placeholder="np. masaż relaksacyjny, sobota wieczór" style="padding: 12px; border: 1px solid var(--border); border-radius: var(--radius-sm); font-family: var(--font-body);"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-secondary btn-full">Wyślij prośbę o kontakt</button>
+                        <p class="text-small" style="font-size: 12px;">Klikając wyślij, akceptujesz naszą politykę prywatności.</p>
+                    </form>
+                </div>
+
+                <div>
+                    <h3 style="margin-bottom: var(--space-4);">Dane kontaktowe</h3>
+                    <ul style="margin-bottom: var(--space-5);">
+                        <li style="margin-bottom: var(--space-3); display: flex; gap: 12px;">
+                            <div class="icon-box" style="width: 32px; height: 32px; margin: 0;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" width="16" height="16"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+                            <div>
+                                <strong>661 107 626</strong><br>
+                                <span class="text-small">Telefon i SMS</span>
+                            </div>
+                        </li>
+                        <li style="margin-bottom: var(--space-3); display: flex; gap: 12px;">
+                            <div class="icon-box" style="width: 32px; height: 32px; margin: 0;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" width="16" height="16"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6l-10 7L2 6"/></svg></div>
+                            <div>
+                                filipskoczen10@gmail.com
+                            </div>
+                        </li>
+                        <li style="margin-bottom: var(--space-3); display: flex; gap: 12px;">
+                            <div class="icon-box" style="width: 32px; height: 32px; margin: 0;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" width="16" height="16"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></div>
+                            <div>
+                                <a href="https://www.instagram.com/masazysta.filip" target="_blank" rel="noopener noreferrer" style="color: var(--accent); font-weight: 600;">@masazysta.filip</a>
+                            </div>
+                        </li>
+                        <li style="display: flex; gap: 12px;">
+                            <div class="icon-box" style="width: 32px; height: 32px; margin: 0;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" width="16" height="16"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+                            <div>
+                                <strong>Nowy Sącz i okolice</strong><br>
+                                <span class="text-small">ul. Długoszowskiego 21b</span>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <h3 style="margin-bottom: var(--space-4);">Dostępność</h3>
+                    <ul class="text-small">
+                        <li style="display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid var(--border);">
+                            <span>Poniedziałek - Piątek</span>
+                            <strong>elastyczne godziny</strong>
+                        </li>
+                        <li style="display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid var(--border);">
+                            <span>Sobota - Niedziela</span>
+                            <strong>dostępny</strong>
+                        </li>
+                        <li style="display: flex; justify-content: space-between; padding: 8px 0;">
+                            <span>Święta</span>
+                            <strong>po uzgodnieniu</strong>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="grid grid-4" style="gap: var(--space-6);">
+                <div>
+                    <h4>Pure Relax FS</h4>
+                    <p class="text-small">Profesjonalny masaż z dojazdem do klienta w Nowym Sączu i okolicach. Dostępny 7 dni w tygodniu.</p>
+                </div>
+                <div>
+                    <h4>Menu</h4>
+                    <ul class="text-small" style="display: flex; flex-direction: column; gap: 8px;">
+                        <li><a href="#">Strona główna</a></li>
+                        <li><a href="#uslugi">Usługi</a></li>
+                        <li><a href="#masazysta">O mnie</a></li>
+                        <li><a href="#cennik">Cennik</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Usługi</h4>
+                    <ul class="text-small" style="display: flex; flex-direction: column; gap: 8px;">
+                        <li><a href="#">Masaż relaksacyjny</a></li>
+                        <li><a href="#">Masaż leczniczy</a></li>
+                        <li><a href="#">Masaż sportowy</a></li>
+                        <li><a href="#">Dojazd do klienta</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Kontakt</h4>
+                    <p class="text-small">Nowy Sącz i okolice<br>Tel: 661 107 626<br>
+                    <a href="https://www.instagram.com/masazysta.filip" target="_blank" rel="noopener noreferrer">@masazysta.filip</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2025 Pure Relax FS – Filip Skoczeń. Wszelkie prawa zastrzeżone. | Polityka Prywatności
+            </div>
+        </div>
+    </footer>
+
+    <div class="mobile-sticky-bar">
+        <a href="tel:+48661107626" class="sticky-phone" aria-label="Zadzwoń">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        </a>
+        <a href="tel:+48661107626" class="btn btn-primary" style="flex: 1;">Zadzwoń i umów masaż</a>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('active');
+
+            if (menu.classList.contains('active')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = '';
+            }
+        }
+
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-up').forEach(el => {
+            el.style.animationPlayState = 'paused';
+            observer.observe(el);
+        });
+
+        const details = document.querySelectorAll("details");
+        details.forEach((targetDetail) => {
+            targetDetail.addEventListener("click", () => {
+                details.forEach((detail) => {
+                    if (detail !== targetDetail) {
+                        detail.removeAttribute("open");
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
